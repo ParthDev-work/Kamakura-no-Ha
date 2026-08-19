@@ -32,7 +32,7 @@ export function ContactForm({ defaultBlade = "" }: { defaultBlade?: string }) {
   };
 
   const field =
-    "w-full bg-white/80 border border-nibi/40 focus:border-sumi px-4 py-3 font-body text-sumi outline-none transition-colors placeholder:text-nibi/50";
+    "w-full bg-transparent border-b-2 border-white focus:border-sumi py-2 px-1 font-body text-sumi outline-none transition-colors placeholder:text-nibi/50";
   const label = "font-gothic text-sm text-keshizumi tracking-ja";
 
   return (
