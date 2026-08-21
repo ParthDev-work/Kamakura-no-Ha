@@ -70,9 +70,6 @@ export function MobileMenu() {
                     className="font-display text-3xl text-sumi tracking-ja"
                   >
                     {link.label}
-                    <span className="latin block text-xs text-keshizumi mt-1">
-                      {link.romaji}
-                    </span>
                   </Link>
                 </li>
               ))}

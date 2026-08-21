@@ -44,7 +44,37 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="font-gothic text-[10px] text-nibi mt-12 tracking-ja">
+        <nav
+          aria-label="案内"
+          className="mt-12 pt-8 border-t border-nibi/20 flex flex-wrap items-center gap-x-6 gap-y-3"
+        >
+          <Link
+            href="/about"
+            className="font-gothic text-[11px] text-keshizumi hover:text-sumi transition-colors tracking-ja"
+          >
+            鎌倉の刃について
+          </Link>
+          <Link
+            href="/privacy"
+            className="font-gothic text-[11px] text-keshizumi hover:text-sumi transition-colors tracking-ja"
+          >
+            個人情報保護方針
+          </Link>
+          <Link
+            href="/terms"
+            className="font-gothic text-[11px] text-keshizumi hover:text-sumi transition-colors tracking-ja"
+          >
+            利用規約
+          </Link>
+          <Link
+            href="/faq"
+            className="font-gothic text-[11px] text-keshizumi hover:text-sumi transition-colors tracking-ja"
+          >
+            よくある御質問
+          </Link>
+        </nav>
+
+        <p className="font-gothic text-[10px] text-nibi mt-8 tracking-ja">
           © 鎌倉の刃
         </p>
       </div>

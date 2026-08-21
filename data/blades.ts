@@ -84,7 +84,7 @@ export const blades: Blade[] = [
     note: "一尺と二尺の間。打刀に添え、大小の一対をなす。狭き間合いを旨とす。",
     makingNote: "打刀と対をなすべく、地鉄の趣を揃えて鍛える。短寸ながら、三枚に組みて粘りを持たす。",
     priceYen: 1200000,
-    image: "/images/wakizashi.png",
+    image: "/images/wakizashi.jpg",
     imageAlt: "拵と共に据えた脇差",
   },
   {

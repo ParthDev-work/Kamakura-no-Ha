@@ -5,7 +5,7 @@ import { MobileMenu } from "./MobileMenu";
 
 export function Nav() {
   return (
-    <header className="border-b border-nibi/40">
+    <header className="sticky top-0 z-40 bg-kinari border-b border-nibi/40">
       <nav
         aria-label="全域"
         className="mx-auto max-w-6xl px-6 md:px-10 h-20 flex items-center justify-between"
