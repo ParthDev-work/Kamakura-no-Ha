@@ -20,7 +20,6 @@ const config: Config = {
         display: ["var(--font-display)", "serif"],
         body: ["var(--font-body)", "serif"],
         gothic: ["var(--font-gothic)", "sans-serif"],
-        brush: ["var(--font-brush)", "serif"],
         latin: ["var(--font-latin)", "serif"],
       },
       borderRadius: {

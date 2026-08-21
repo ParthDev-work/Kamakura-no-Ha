@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -7,13 +8,7 @@ export const metadata: Metadata = {
     "御誂えの御相談を承ります。一振りの御相談、心よりお待ち申し上げます。",
 };
 
-export default async function OtoiawasePage({
-  searchParams,
-}: {
-  searchParams: Promise<{ blade?: string }>;
-}) {
-  const { blade } = await searchParams;
-
+export default function OtoiawasePage() {
   return (
     <section className="mx-auto max-w-3xl px-6 md:px-10 py-20">
       <header className="mb-14 max-w-xl">
@@ -24,7 +19,9 @@ export default async function OtoiawasePage({
         </p>
       </header>
 
-      <ContactForm defaultBlade={blade ?? ""} />
+      <Suspense fallback={null}>
+        <ContactForm />
+      </Suspense>
     </section>
   );
 }

@@ -5,13 +5,15 @@
 // （サーバのルートは設けない。design-brief §6 の二案のうち mailto: を選択。）
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const ATELIER_MAIL = "otoiawase@kamakura-no-ha.example";
 
-export function ContactForm({ defaultBlade = "" }: { defaultBlade?: string }) {
+export function ContactForm() {
+  const searchParams = useSearchParams();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [blade, setBlade] = useState(defaultBlade);
+  const [blade, setBlade] = useState(searchParams.get("blade") ?? "");
   const [body, setBody] = useState("");
 
   const onSubmit = (e: React.FormEvent) => {

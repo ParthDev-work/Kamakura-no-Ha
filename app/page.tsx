@@ -28,7 +28,7 @@ export default function Home() {
             {/* 引用 — 横書きで堂々と中央に */}
             <figure className="rise max-w-3xl">
               <blockquote>
-                <p className="font-brush text-3xl md:text-5xl lg:text-6xl leading-relaxed md:leading-relaxed tracking-[0.12em]">
+                <p className="font-display text-3xl md:text-5xl lg:text-6xl leading-relaxed md:leading-relaxed tracking-[0.12em]">
                   千日の稽古を鍛とし、
                   <br />
                   万日の稽古を練とす。

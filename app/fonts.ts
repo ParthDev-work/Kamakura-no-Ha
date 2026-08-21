@@ -1,46 +1,40 @@
-import {
-  Zen_Old_Mincho,
-  Noto_Serif_JP,
-  Zen_Kaku_Gothic_New,
-  Klee_One,
-  EB_Garamond,
-} from "next/font/google";
+import localFont from "next/font/local";
+import { EB_Garamond } from "next/font/google";
 
-// Display — Mincho with brush character (headings, hero, pull-quotes).
-// Only 400 (headings/body render at 400) and 700 (bold/strong) are used.
-export const zenOldMincho = Zen_Old_Mincho({
-  weight: ["400", "700"],
-  subsets: ["latin"],
+// Japanese fonts are self-hosted, subset to only the ~1,300 glyphs this site renders
+// (regenerate with scripts/subset-fonts.py). This collapses ~140 unicode-range font
+// requests (~2.7MB) from next/font/google down to three small woff2 files. Only
+// weight 400 is used sitewide (no bold/strong anywhere), so one face per family.
+
+// Display — Mincho with brush character (headings, hero, pull-quotes)
+export const zenOldMincho = localFont({
+  src: "./_fonts/ZenOldMincho-Regular.subset.woff2",
+  weight: "400",
   display: "swap",
+  fallback: ["YuMincho", "Hiragino Mincho ProN", "serif"],
   variable: "--font-display",
 });
 
 // Body — long-form journal & craft copy
-export const notoSerifJp = Noto_Serif_JP({
-  weight: ["400", "700"],
-  subsets: ["latin"],
+export const notoSerifJp = localFont({
+  src: "./_fonts/NotoSerifJP-Regular.subset.woff2",
+  weight: "400",
   display: "swap",
+  fallback: ["YuMincho", "Hiragino Mincho ProN", "serif"],
   variable: "--font-body",
 });
 
 // Utility — tiny nav, captions, measurements (used sparingly, small)
-export const zenKakuGothicNew = Zen_Kaku_Gothic_New({
-  weight: ["400"],
-  subsets: ["latin"],
+export const zenKakuGothicNew = localFont({
+  src: "./_fonts/ZenKakuGothicNew-Regular.subset.woff2",
+  weight: "400",
   display: "swap",
+  fallback: ["YuGothic", "Hiragino Kaku Gothic ProN", "sans-serif"],
   variable: "--font-gothic",
 });
 
-// Brush-accent alternative, for a single hero line
-export const kleeOne = Klee_One({
-  weight: ["400"],
-  subsets: ["latin"],
-  display: "swap",
-  preload: false,
-  variable: "--font-brush",
-});
-
-// Latin — a quiet oldstyle serif for measurements & years (never Inter/Helvetica)
+// Latin — a quiet oldstyle serif for measurements & years (never Inter/Helvetica).
+// Latin-only, so next/font/google is cheap here (a couple of small requests).
 export const ebGaramond = EB_Garamond({
   weight: ["400"],
   subsets: ["latin"],
@@ -52,6 +46,5 @@ export const fontVariables = [
   zenOldMincho.variable,
   notoSerifJp.variable,
   zenKakuGothicNew.variable,
-  kleeOne.variable,
   ebGaramond.variable,
 ].join(" ");
