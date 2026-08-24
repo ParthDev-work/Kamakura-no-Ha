@@ -23,9 +23,15 @@ body {
   font-family: var(--font-body), serif;
   line-height: 1.95;
   letter-spacing: 0.04em;
-  /* very subtle washi grain — low opacity, easily skipped */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  text-rendering: optimizeLegibility;
+  /* very subtle washi grain — a pre-baked 64px noise tile. Rasterized once and
+     tiled cheaply; avoids re-computing an feTurbulence filter over the whole
+     (tall) page on every paint, which stalled the main thread on mobile. */
+  background-image: url("/images/washi.png");
+  background-repeat: repeat;
+  /* `optimizeLegibility` forces kerning/ligature layout over every text node and
+     measurably inflated style/layout on mobile; the gain for Mincho is marginal.
+     Let the browser choose (defaults to speed for body text). */
+  text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
 }
 
